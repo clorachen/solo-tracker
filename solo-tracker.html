@@ -321,7 +321,8 @@ body {
   width: 26px; height: 26px;
   border-radius: var(--r); border: none;
   background: none; cursor: pointer;
-  color: var(--text3); font-size: 14px;
+  color: var(--text3); font-size: 18px; line-height: 1;
+  font-family: system-ui, sans-serif;
   transition: background .12s, color .12s;
 }
 .modal-close:hover { background: var(--surface2); color: var(--text); }
@@ -465,10 +466,10 @@ body {
 
     <div class="view-tabs">
       <button class="vtab active" id="tab-kanban" onclick="switchView('kanban')">
-        <i class="ti ti-layout-kanban"></i> 看板
+        <i class="ti ti-layout-kanban"></i> Board
       </button>
       <button class="vtab" id="tab-gantt" onclick="switchView('gantt')">
-        <i class="ti ti-chart-gantt"></i> 甘特图
+        <i class="ti ti-chart-gantt"></i> Gantt
       </button>
     </div>
 
@@ -476,10 +477,10 @@ body {
 
     <button class="btn btn-ghost" onclick="openProjModal(null)">
       <i class="ti ti-folder-plus"></i>
-      <span class="hide-xs">新项目</span>
+      <span class="hide-xs">New Project</span>
     </button>
     <button class="btn btn-primary" onclick="openTaskModal(null,null,null)">
-      <i class="ti ti-plus"></i> 新任务
+      <i class="ti ti-plus"></i> New Task
     </button>
   </div>
 
@@ -497,60 +498,58 @@ body {
 <div class="overlay" id="task-overlay">
   <div class="modal">
     <div class="modal-hdr">
-      <h3 id="task-modal-title">新任务</h3>
-      <button class="modal-close" onclick="closeTaskModal()">
-        <i class="ti ti-x"></i>
-      </button>
+      <h3 id="task-modal-title">New Task</h3>
+      <button class="modal-close" onclick="closeTaskModal()">×</button>
     </div>
 
-    <label class="m-label">任务名称</label>
-    <input class="m-input" id="m-name" placeholder="输入任务名称…">
+    <label class="m-label">Task name</label>
+    <input class="m-input" id="m-name" placeholder="Enter task name…">
 
-    <label class="m-label">项目</label>
+    <label class="m-label">Project</label>
     <select class="m-select" id="m-proj"></select>
 
     <div class="m-row">
       <div>
-        <label class="m-label">状态</label>
+        <label class="m-label">Status</label>
         <select class="m-select" id="m-status">
-          <option value="todo">待办</option>
-          <option value="doing">进行中</option>
-          <option value="review">审核</option>
-          <option value="done">已完成</option>
+          <option value="todo">To Do</option>
+          <option value="doing">In Progress</option>
+          <option value="review">In Review</option>
+          <option value="done">Done</option>
         </select>
       </div>
       <div>
-        <label class="m-label">优先级</label>
+        <label class="m-label">Priority</label>
         <select class="m-select" id="m-pri">
-          <option value="P2">P2 中</option>
-          <option value="P0">P0 紧急</option>
-          <option value="P1">P1 高</option>
-          <option value="P3">P3 低</option>
+          <option value="P2">P2 Medium</option>
+          <option value="P0">P0 Urgent</option>
+          <option value="P1">P1 High</option>
+          <option value="P3">P3 Low</option>
         </select>
       </div>
     </div>
 
     <div class="m-row">
       <div>
-        <label class="m-label">开始日期</label>
+        <label class="m-label">Start date</label>
         <input class="m-input" id="m-start" type="date">
       </div>
       <div>
-        <label class="m-label">截止日期</label>
+        <label class="m-label">Due date</label>
         <input class="m-input" id="m-due" type="date">
       </div>
     </div>
 
-    <label class="m-label">备注</label>
-    <textarea class="m-textarea" id="m-note" placeholder="可选…"></textarea>
+    <label class="m-label">Notes</label>
+    <textarea class="m-textarea" id="m-note" placeholder="Optional…"></textarea>
 
     <div class="modal-btns">
       <button class="btn btn-danger modal-del" id="task-del-btn"
               style="display:none" onclick="confirmDelTask()">
-        <i class="ti ti-trash"></i> 删除
+        <i class="ti ti-trash"></i> Delete
       </button>
-      <button class="btn" onclick="closeTaskModal()">取消</button>
-      <button class="btn btn-primary" onclick="saveTask()">保存</button>
+      <button class="btn" onclick="closeTaskModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveTask()">Save</button>
     </div>
   </div>
 </div>
@@ -561,25 +560,23 @@ body {
 <div class="overlay" id="proj-overlay">
   <div class="modal" style="width:300px">
     <div class="modal-hdr">
-      <h3 id="proj-modal-title">新项目</h3>
-      <button class="modal-close" onclick="closeProjModal()">
-        <i class="ti ti-x"></i>
-      </button>
+      <h3 id="proj-modal-title">New Project</h3>
+      <button class="modal-close" onclick="closeProjModal()">×</button>
     </div>
 
-    <label class="m-label">项目名称</label>
-    <input class="m-input" id="pm-name" placeholder="输入项目名称…">
+    <label class="m-label">Project name</label>
+    <input class="m-input" id="pm-name" placeholder="Enter project name…">
 
-    <label class="m-label">颜色</label>
+    <label class="m-label">Color</label>
     <div class="swatches" id="swatches"></div>
 
     <div class="modal-btns">
       <button class="btn btn-danger modal-del" id="proj-del-btn"
               style="display:none" onclick="confirmDelProject()">
-        <i class="ti ti-trash"></i> 删除项目
+        <i class="ti ti-trash"></i> Delete Project
       </button>
-      <button class="btn" onclick="closeProjModal()">取消</button>
-      <button class="btn btn-primary" onclick="saveProject()">保存</button>
+      <button class="btn" onclick="closeProjModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveProject()">Save</button>
     </div>
   </div>
 </div>
@@ -597,7 +594,7 @@ body {
 const STORE_KEY   = 'solo-tracker-v3';
 const PROJ_COLORS = ['#6153e0','#059669','#d94a28','#2563eb','#d97706','#db2777','#7c3aed','#0891b2'];
 const STATUSES    = ['todo','doing','review','done'];
-const STATUS_LBL  = {todo:'待办', doing:'进行中', review:'审核', done:'已完成'};
+const STATUS_LBL  = {todo:'To Do', doing:'In Progress', review:'In Review', done:'Done'};
 
 /* ── state ── */
 let projects = [];
@@ -627,23 +624,70 @@ function saveData() {
 }
 function seedDefaults() {
   projects = [
-    {id:'p1', name:'PhD 研究提案',  color:'#6153e0'},
-    {id:'p2', name:'n8n 自动化',    color:'#059669'},
-    {id:'p3', name:'AI 内容变现',   color:'#d94a28'},
+    {id:'p1', name:'PhD Research',          color:'#6153e0', order:0},
+    {id:'p2', name:'Solo Tracker',          color:'#059669', order:1},
+    {id:'p3', name:'AI Content Automation', color:'#d94a28', order:2},
+    {id:'p4', name:'Creator Business',      color:'#2563eb', order:3},
+    {id:'p5', name:'AI Course Product',     color:'#d97706', order:4},
   ];
   tasks = [
-    {id:1,  proj:'p1', name:'文献矩阵整理',       status:'done',   pri:'P1', start:'2026-05-01', due:'2026-05-10', note:''},
-    {id:2,  proj:'p1', name:'2.1–2.4 章节写作',   status:'doing',  pri:'P0', start:'2026-05-10', due:'2026-05-28', note:'理论框架重点'},
-    {id:3,  proj:'p1', name:'RQ4 边界条件论证',    status:'todo',   pri:'P0', start:'2026-05-25', due:'2026-06-10', note:''},
-    {id:4,  proj:'p1', name:'导师初稿反馈',         status:'todo',   pri:'P1', start:'2026-06-10', due:'2026-06-20', note:''},
-    {id:5,  proj:'p2', name:'Xiaohongshu 发布',    status:'done',   pri:'P2', start:'2026-05-05', due:'2026-05-08', note:''},
-    {id:6,  proj:'p2', name:'Douyin/TikTok 接入',  status:'doing',  pri:'P1', start:'2026-05-15', due:'2026-06-01', note:''},
-    {id:7,  proj:'p2', name:'Instagram 自动推送',   status:'todo',   pri:'P2', start:'2026-06-01', due:'2026-06-15', note:''},
-    {id:8,  proj:'p3', name:'Gumroad 商品页优化',   status:'todo',   pri:'P3', start:'2026-05-20', due:'2026-06-05', note:''},
-    {id:9,  proj:'p3', name:'Whisper 转录测试',     status:'review', pri:'P2', start:'2026-05-12', due:'2026-05-14', note:''},
-    {id:10, proj:'p3', name:'AI 框架产品',           status:'todo',   pri:'P1', start:'2026-06-05', due:'2026-07-01', note:''},
+    /* PhD Research */
+    {id:1,  proj:'p1', name:'Systematic Literature Review',      status:'done',   pri:'P1', start:'2026-04-01', due:'2026-04-20', note:'', order:0,
+      timestamps:{todo_at:'2026-04-01', doing_at:'2026-04-05', done_at:'2026-04-20', planned_due:'2026-04-20'}},
+    {id:2,  proj:'p1', name:'Research Framework Design',         status:'done',   pri:'P0', start:'2026-04-20', due:'2026-05-05', note:'', order:1,
+      timestamps:{todo_at:'2026-04-20', doing_at:'2026-04-22', done_at:'2026-05-05', planned_due:'2026-05-05'}},
+    {id:3,  proj:'p1', name:'Chapter 2 — Theoretical Framework', status:'doing',  pri:'P0', start:'2026-05-20', due:'2026-05-30', note:'External Enabler framework', order:2,
+      timestamps:{todo_at:'2026-05-06', doing_at:'2026-05-20'}},
+    {id:4,  proj:'p1', name:'RQ4 Boundary Conditions',           status:'todo',   pri:'P0', start:'2026-05-28', due:'2026-06-10', note:'', order:3,
+      timestamps:{todo_at:'2026-05-15'}},
+    {id:5,  proj:'p1', name:'Case Study Interviews (x5)',        status:'todo',   pri:'P1', start:'2026-06-10', due:'2026-06-30', note:'', order:4,
+      timestamps:{todo_at:'2026-05-15'}},
+    /* Solo Tracker */
+    {id:6,  proj:'p2', name:'Product Prototype',                 status:'done',   pri:'P1', start:'2026-05-10', due:'2026-05-18', note:'', order:0,
+      timestamps:{todo_at:'2026-05-10', doing_at:'2026-05-12', done_at:'2026-05-18', planned_due:'2026-05-18'}},
+    {id:7,  proj:'p2', name:'Kanban View',                       status:'done',   pri:'P0', start:'2026-05-18', due:'2026-05-22', note:'', order:1,
+      timestamps:{todo_at:'2026-05-18', doing_at:'2026-05-19', done_at:'2026-05-22', planned_due:'2026-05-22'}},
+    {id:8,  proj:'p2', name:'Gantt Chart',                       status:'done',   pri:'P0', start:'2026-05-22', due:'2026-05-25', note:'', order:2,
+      timestamps:{todo_at:'2026-05-22', doing_at:'2026-05-23', done_at:'2026-05-25', planned_due:'2026-05-25'}},
+    {id:9,  proj:'p2', name:'GitHub Open Source Release',        status:'doing',  pri:'P1', start:'2026-05-28', due:'2026-05-29', note:'', order:3,
+      timestamps:{todo_at:'2026-05-26', doing_at:'2026-05-28'}},
+    {id:10, proj:'p2', name:'Lemon Squeezy Listing ($9)',        status:'todo',   pri:'P1', start:'2026-05-29', due:'2026-06-01', note:'', order:4,
+      timestamps:{todo_at:'2026-05-26'}},
+    {id:11, proj:'p2', name:'ProductHunt Launch',                status:'todo',   pri:'P2', start:'2026-06-15', due:'2026-06-20', note:'', order:5,
+      timestamps:{todo_at:'2026-05-26'}},
+    /* AI Content Automation */
+    {id:12, proj:'p3', name:'n8n Workflow Setup',                status:'done',   pri:'P2', start:'2026-05-01', due:'2026-05-10', note:'', order:0,
+      timestamps:{todo_at:'2026-05-01', doing_at:'2026-05-03', done_at:'2026-05-10', planned_due:'2026-05-10'}},
+    {id:13, proj:'p3', name:'Xiaohongshu Auto-publish',          status:'done',   pri:'P2', start:'2026-05-10', due:'2026-05-15', note:'', order:1,
+      timestamps:{todo_at:'2026-05-10', doing_at:'2026-05-11', done_at:'2026-05-15', planned_due:'2026-05-15'}},
+    {id:14, proj:'p3', name:'Douyin Multi-account Scheduler',    status:'doing',  pri:'P1', start:'2026-05-25', due:'2026-06-05', note:'', order:2,
+      timestamps:{todo_at:'2026-05-15', doing_at:'2026-05-25'}},
+    {id:15, proj:'p3', name:'Instagram & Twitter Integration',   status:'todo',   pri:'P2', start:'2026-06-05', due:'2026-06-20', note:'', order:3,
+      timestamps:{todo_at:'2026-05-15'}},
+    {id:16, proj:'p3', name:'Analytics Dashboard',               status:'todo',   pri:'P3', start:'2026-06-20', due:'2026-07-10', note:'', order:4,
+      timestamps:{todo_at:'2026-05-15'}},
+    /* Creator Business */
+    {id:17, proj:'p4', name:'Brand Positioning & Strategy',      status:'done',   pri:'P1', start:'2026-05-05', due:'2026-05-12', note:'', order:0,
+      timestamps:{todo_at:'2026-05-05', doing_at:'2026-05-06', done_at:'2026-05-12', planned_due:'2026-05-12'}},
+    {id:18, proj:'p4', name:'First 10 Posts (AI-assisted)',      status:'doing',  pri:'P1', start:'2026-05-20', due:'2026-06-01', note:'', order:1,
+      timestamps:{todo_at:'2026-05-12', doing_at:'2026-05-20'}},
+    {id:19, proj:'p4', name:'Newsletter Issue #1',               status:'review', pri:'P2', start:'2026-05-26', due:'2026-05-28', note:'', order:2,
+      timestamps:{todo_at:'2026-05-20', doing_at:'2026-05-26', review_at:'2026-05-27'}},
+    {id:20, proj:'p4', name:'Paid Community Launch',             status:'todo',   pri:'P2', start:'2026-06-10', due:'2026-06-30', note:'', order:3,
+      timestamps:{todo_at:'2026-05-20'}},
+    /* AI Course Product */
+    {id:21, proj:'p5', name:'Curriculum Design',                 status:'done',   pri:'P1', start:'2026-05-08', due:'2026-05-14', note:'', order:0,
+      timestamps:{todo_at:'2026-05-08', doing_at:'2026-05-09', done_at:'2026-05-14', planned_due:'2026-05-14'}},
+    {id:22, proj:'p5', name:'Module 1 Recording',                status:'doing',  pri:'P0', start:'2026-05-22', due:'2026-06-05', note:'5 modules total', order:1,
+      timestamps:{todo_at:'2026-05-14', doing_at:'2026-05-22'}},
+    {id:23, proj:'p5', name:'Course Platform Setup',             status:'todo',   pri:'P2', start:'2026-06-05', due:'2026-06-15', note:'Gumroad or Podia', order:2,
+      timestamps:{todo_at:'2026-05-14'}},
+    {id:24, proj:'p5', name:'Beta Cohort Recruitment (30)',      status:'todo',   pri:'P1', start:'2026-06-15', due:'2026-06-25', note:'', order:3,
+      timestamps:{todo_at:'2026-05-14'}},
+    {id:25, proj:'p5', name:'Official Launch',                   status:'todo',   pri:'P0', start:'2026-07-01', due:'2026-07-15', note:'', order:4,
+      timestamps:{todo_at:'2026-05-14'}},
   ];
-  nextId = 11;
+  nextId = 26;
   saveData();
 }
 loadData();
@@ -671,16 +715,16 @@ function diffDays(a, b) { return Math.round((b - a) / 86400000); }
 function durLabel(s, e) {
   if (!s || !e) return null;
   const d = diffDays(parseD(s), parseD(e));
-  return d >= 0 ? d + '天' : null;
+  return d >= 0 ? d + 'd' : null;
 }
 function cdInfo(due, status) {
-  if (status === 'done') return {text:'已完成', cls:'t-done'};
-  if (!due) return {text:'无截止', cls:'t-p3'};
+  if (status === 'done') return {text:'Done', cls:'t-done'};
+  if (!due) return {text:'No due date', cls:'t-p3'};
   const d = diffDays(new Date(), parseD(due));
-  if (d < 0)  return {text:'逾期'+Math.abs(d)+'天', cls:'t-over'};
-  if (d === 0) return {text:'今天到期', cls:'t-warn'};
-  if (d <= 5) return {text:'剩'+d+'天', cls:'t-warn'};
-  return {text:'剩'+d+'天', cls:'t-ok'};
+  if (d < 0)  return {text:Math.abs(d)+'d overdue', cls:'t-over'};
+  if (d === 0) return {text:'Due today', cls:'t-warn'};
+  if (d <= 5) return {text:d+'d left', cls:'t-warn'};
+  return {text:d+'d left', cls:'t-ok'};
 }
 function priCls(p) { return 't-' + p.toLowerCase(); }
 function projById(id) { return projects.find(p=>p.id===id); }
@@ -716,10 +760,10 @@ function showTT(e, t, proj) {
   const cd  = cdInfo(t.due, t.status);
   ttEl.innerHTML = `
     <div class="tt-name">${esc(t.name)}</div>
-    <div class="tt-row"><span class="tt-k">项目</span><span class="tt-v" style="color:${proj.color}">${esc(proj.name)}</span></div>
-    <div class="tt-row"><span class="tt-k">开始</span><span class="tt-v">${t.start||'—'}</span></div>
-    <div class="tt-row"><span class="tt-k">截止</span><span class="tt-v">${t.due||'—'}</span></div>
-    <div class="tt-row"><span class="tt-k">时长</span><span class="tt-v">${dur||'—'}</span></div>
+    <div class="tt-row"><span class="tt-k">Project</span><span class="tt-v" style="color:${proj.color}">${esc(proj.name)}</span></div>
+    <div class="tt-row"><span class="tt-k">Start</span><span class="tt-v">${t.start||'—'}</span></div>
+    <div class="tt-row"><span class="tt-k">Due</span><span class="tt-v">${t.due||'—'}</span></div>
+    <div class="tt-row"><span class="tt-k">Duration</span><span class="tt-v">${dur||'—'}</span></div>
     <div class="tt-tags">
       <span class="tag ${priCls(t.pri)}">${t.pri}</span>
       <span class="tag t-p3">${STATUS_LBL[t.status]}</span>
@@ -742,7 +786,7 @@ let editTaskId = null;
 
 function openTaskModal(projId, status, task) {
   editTaskId = task ? task.id : null;
-  document.getElementById('task-modal-title').textContent = task ? '编辑任务' : '新任务';
+  document.getElementById('task-modal-title').textContent = task ? 'Edit Task' : 'New Task';
   document.getElementById('task-del-btn').style.display   = task ? '' : 'none';
 
   /* populate project dropdown */
@@ -839,14 +883,14 @@ function saveTask() {
 }
 function confirmDelTask() {
   if (!editTaskId) return;
-  if (!confirm('确认删除这个任务？')) return;
+  if (!confirm('Delete this task?')) return;
   tasks = tasks.filter(t=>t.id!==editTaskId);
   saveData();
   closeTaskModal();
   refresh();
 }
 function quickDelTask(id) {
-  if (!confirm('确认删除这个任务？')) return;
+  if (!confirm('Delete this task?')) return;
   tasks = tasks.filter(t=>t.id!==id);
   saveData();
   refresh();
@@ -861,7 +905,7 @@ let selColor   = PROJ_COLORS[0];
 function openProjModal(projId) {
   editProjId = projId ?? null;
   const proj = projId ? projects.find(p=>p.id===projId) : null;
-  document.getElementById('proj-modal-title').textContent = proj ? '编辑项目' : '新项目';
+  document.getElementById('proj-modal-title').textContent = proj ? 'Edit Project' : 'New Project';
   document.getElementById('proj-del-btn').style.display   = proj ? '' : 'none';
   document.getElementById('pm-name').value = proj ? proj.name : '';
   selColor = proj ? proj.color : PROJ_COLORS[0];
@@ -896,8 +940,8 @@ function confirmDelProject() {
   if (!editProjId) return;
   const count = tasks.filter(t=>t.proj===editProjId).length;
   const msg = count
-    ? `删除项目会同时删除其 ${count} 个任务，确认？`
-    : '确认删除这个项目？';
+    ? `Delete project and its ${count} task(s)?`
+    : 'Delete this project?';
   if (!confirm(msg)) return;
   projects = projects.filter(p=>p.id!==editProjId);
   tasks    = tasks.filter(t=>t.proj!==editProjId);
@@ -948,9 +992,9 @@ function renderKanban() {
     el.innerHTML = `
       <div class="empty-state">
         <i class="ti ti-layout-kanban"></i>
-        <p>还没有项目</p>
+        <p>No projects yet</p>
         <button class="btn btn-primary" onclick="openProjModal(null)">
-          <i class="ti ti-plus"></i> 创建第一个项目
+          <i class="ti ti-plus"></i> Create first project
         </button>
       </div>`;
     return;
@@ -978,7 +1022,7 @@ function renderKanban() {
     /* collapse button */
     const collapseBtn = document.createElement('button');
     collapseBtn.className = 'k-collapse-btn';
-    collapseBtn.title = isCollapsed ? '展开' : '折叠';
+    collapseBtn.title = isCollapsed ? 'Expand' : 'Collapse';
     collapseBtn.innerHTML = `<i class="ti ti-chevron-${isCollapsed ? 'right' : 'down'}"></i>`;
     collapseBtn.addEventListener('click', () => {
       if (collapsedLanes.has(proj.id)) collapsedLanes.delete(proj.id);
@@ -991,7 +1035,7 @@ function renderKanban() {
     const dragHandle = document.createElement('span');
     dragHandle.className = 'k-lane-drag-handle';
     dragHandle.innerHTML = '<i class="ti ti-grip-vertical"></i>';
-    dragHandle.title = '拖拽调整项目顺序';
+    dragHandle.title = 'Drag to reorder projects';
     hdr.appendChild(dragHandle);
 
     /* color dot */
@@ -1004,7 +1048,7 @@ function renderKanban() {
     const nameEl = document.createElement('span');
     nameEl.className = 'k-lane-name';
     nameEl.textContent = proj.name;
-    nameEl.title = '点击编辑项目名';
+    nameEl.title = 'Click to rename';
     nameEl.addEventListener('click', () => startInlineEdit(nameEl, proj));
     hdr.appendChild(nameEl);
 
@@ -1017,14 +1061,14 @@ function renderKanban() {
     /* settings + add buttons */
     const settingsBtn = document.createElement('button');
     settingsBtn.className = 'btn btn-ghost btn-icon k-lane-btn';
-    settingsBtn.title = '编辑项目';
+    settingsBtn.title = 'Edit project';
     settingsBtn.innerHTML = '<i class="ti ti-settings" style="font-size:12px"></i>';
     settingsBtn.addEventListener('click', () => openProjModal(proj.id));
     hdr.appendChild(settingsBtn);
 
     const addBtn = document.createElement('button');
     addBtn.className = 'btn btn-ghost btn-icon k-lane-btn';
-    addBtn.title = '添加任务';
+    addBtn.title = 'Add task';
     addBtn.innerHTML = '<i class="ti ti-plus" style="font-size:12px"></i>';
     addBtn.addEventListener('click', () => openTaskModal(proj.id, 'todo', null));
     hdr.appendChild(addBtn);
@@ -1096,7 +1140,7 @@ function renderKanban() {
       rowHandle.className = 'k-row-handle';
       rowHandle.draggable = true;            /* handle IS the draggable thing */
       rowHandle.innerHTML = '<i class="ti ti-grip-horizontal"></i>';
-      rowHandle.title = '拖拽调整顺序';
+      rowHandle.title = 'Drag to reorder';
 
       /* drag FROM the handle */
       rowHandle.addEventListener('dragstart', e => {
@@ -1223,14 +1267,14 @@ function buildKanbanCard(cell, t, proj) {
     const planStart = ts.todo_at;
     const planEnd   = ts.planned_due || null;
     if (planStart && planEnd) {
-      parts.push(`计划 ${fmtShortDate(planStart)}–${fmtShortDate(planEnd)}`);
+      parts.push(`Planned ${fmtShortDate(planStart)}–${fmtShortDate(planEnd)}`);
     } else if (planStart) {
-      parts.push(`计划 ${fmtShortDate(planStart)}`);
+      parts.push(`Planned ${fmtShortDate(planStart)}`);
     }
     const doneDate  = ts.done_at || todayStr();
-    parts.push(`完成 ${fmtShortDate(doneDate)}`);
+    parts.push(`Done ${fmtShortDate(doneDate)}`);
     const totalDays = diffDays(parseD(planStart), parseD(doneDate));
-    parts.push(totalDays >= 1 ? `历时 ${totalDays} 天` : '历时 1 天');
+    parts.push(totalDays >= 1 ? `${totalDays}d total` : '1d total');
     timelineHtml = `<div class="k-card-timeline">${parts.join('  ·  ')}</div>`;
   }
 
@@ -1243,9 +1287,7 @@ function buildKanbanCard(cell, t, proj) {
   card.innerHTML = `
     <button class="k-card-del"
             onclick="event.stopPropagation(); quickDelTask(${t.id})"
-            title="删除">
-      <i class="ti ti-x"></i>
-    </button>
+            title="Delete">×</button>
     <div class="k-card-name">${esc(t.name)}</div>
     <div class="k-card-meta">
       <span class="tag ${priCls(t.pri)}">${t.pri}</span>
@@ -1412,7 +1454,8 @@ function fmtShortDate(s) {
   display: none; width: 18px; height: 18px;
   border-radius: 3px; border: none;
   background: none; cursor: pointer;
-  color: var(--text3); font-size: 11px;
+  color: var(--text3); font-size: 14px; line-height: 1;
+  font-family: system-ui, sans-serif;
   align-items: center; justify-content: center;
   transition: background .1s, color .1s;
 }
@@ -1534,7 +1577,7 @@ function dayViewStart() {
 const ZOOM_CFG = {
   month: {
     count: 6,
-    label:    d => `${d.getMonth()+1}月`,
+    label:    d => `${d.getMonth()+1}/${d.getFullYear().toString().slice(2)}`,
     colStart: (base, i) => new Date(base.getFullYear(), base.getMonth()+i, 1),
     colEnd:   (base, i) => new Date(base.getFullYear(), base.getMonth()+i+1, 0),
     nav:      (d, n) => { const r=new Date(d); r.setMonth(r.getMonth()+n*3); return r; },
@@ -1560,7 +1603,7 @@ const ZOOM_CFG = {
 
 /* 动态列宽：用可视区宽度减去标签列，除以列数 */
 const LABEL_COL_W = 160;
-const MIN_COL_W = { month: 60, week: 56, day: 28 }; // 最小列宽兜底
+const MIN_COL_W = { month: 60, week: 56, day: 28 }; // minimum column width
 
 function calcColW() {
   const cfg = ZOOM_CFG[zoom];
@@ -1640,20 +1683,20 @@ function renderGantt() {
   ctrl.className = 'g-ctrl';
   ctrl.innerHTML = `
     <div class="g-zoom-tabs">
-      <button class="ztab${zoom==='month'?' active':''}" id="ztab-month" onclick="setZoom('month')">月</button>
-      <button class="ztab${zoom==='week'?' active':''}"  id="ztab-week"  onclick="setZoom('week')">周</button>
-      <button class="ztab${zoom==='day'?' active':''}"   id="ztab-day"   onclick="setZoom('day')">天</button>
+      <button class="ztab${zoom==='month'?' active':''}" id="ztab-month" onclick="setZoom('month')">Mo</button>
+      <button class="ztab${zoom==='week'?' active':''}"  id="ztab-week"  onclick="setZoom('week')">Wk</button>
+      <button class="ztab${zoom==='day'?' active':''}"   id="ztab-day"   onclick="setZoom('day')">Day</button>
     </div>
     <button class="btn btn-ghost btn-icon" onclick="navigate(-1)"><i class="ti ti-chevron-left"></i></button>
     <span class="g-period" id="g-period"></span>
     <button class="btn btn-ghost btn-icon" onclick="navigate(1)"><i class="ti ti-chevron-right"></i></button>
-    <button class="btn btn-ghost" onclick="goToday()">今天</button>`;
+    <button class="btn btn-ghost" onclick="goToday()">Today</button>`;
   view.appendChild(ctrl);
 
   const periodMap = {
-    month: `${vs.getFullYear()} 年 ${vs.getMonth()+1}–${ve.getMonth()+1} 月`,
+    month: `${vs.getFullYear()}  ${vs.getMonth()+1}–${ve.getMonth()+1}`,
     week:  `${vs.getMonth()+1}/${vs.getDate()} – ${ve.getMonth()+1}/${ve.getDate()}`,
-    day:   `${vs.getFullYear()} 年 ${vs.getMonth()+1} 月（${gTotalDays()} 天）`,
+    day:   `${vs.getFullYear()}  ${vs.getMonth()+1} (${gTotalDays()}d)`,
   };
   ctrl.querySelector('#g-period').textContent = periodMap[zoom];
 
@@ -1680,7 +1723,7 @@ function renderGantt() {
   head.className = 'g-head';
   const headLbl = document.createElement('div');
   headLbl.className = 'g-row-lbl g-row-lbl-head';
-  headLbl.textContent = '项目 / 任务';
+  headLbl.textContent = 'Project / Task';
   head.appendChild(headLbl);
   const headCells = document.createElement('div');
   headCells.className = 'g-head-cells';
@@ -1761,7 +1804,7 @@ function renderGantt() {
   /* legend */
   const leg = document.createElement('div');
   leg.className = 'g-legend';
-  leg.innerHTML = `<div class="g-leg-item"><div class="g-leg-line"></div><span>今天</span></div>`
+  leg.innerHTML = `<div class="g-leg-item"><div class="g-leg-line"></div><span>Today</span></div>`
     + projects.map(p =>
         `<div class="g-leg-item"><div class="g-leg-dot" style="background:${p.color}"></div><span>${esc(p.name)}</span></div>`
       ).join('');
@@ -1818,12 +1861,12 @@ function buildGanttBar(track, t, proj, TW, totalDays, colW) {
   /* hover delete button */
   const delBtn = document.createElement('button');
   delBtn.className = 'g-bar-del';
-  delBtn.innerHTML = '<i class="ti ti-x"></i>';
-  delBtn.title = '删除任务';
+  delBtn.textContent = '×';
+  delBtn.title = 'Delete task';
   delBtn.addEventListener('pointerdown', e => e.stopPropagation());
   delBtn.addEventListener('click', e => {
     e.stopPropagation();
-    if (confirm('确认删除「' + t.name + '」？')) {
+    if (confirm('Delete task "' + t.name + '"?')) {
       tasks = tasks.filter(x => x.id !== t.id);
       saveData();
       renderGantt();
@@ -2022,7 +2065,7 @@ window.addEventListener('resize', () => {
 });
 
 /* fix status label */
-STATUS_LBL['review'] = '待验证';
+STATUS_LBL['review'] = 'In Review';
 
 /* initial render */
 renderKanban();
