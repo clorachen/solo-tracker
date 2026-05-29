@@ -4,7 +4,9 @@
 
 > Built by [Clora Chen](https://github.com/clorachen) — a PhD researcher and AI entrepreneur who got tired of paying for features she never uses.
 
-![Solo Tracker Screenshot](./screenshot.png)
+![Kanban View](./screenshot-kanban.png)
+
+![Gantt View](./screenshot-gantt.png)
 
 ---
 
@@ -39,7 +41,7 @@ Solo Tracker is designed for people who wear multiple hats and run multiple proj
 |---|---|
 | Multi-project kanban | Each project gets its own swim lane, row-aligned grid |
 | Gantt chart | Month / week / day zoom, today line, drag & resize bars |
-| Task status | Todo → In Progress → Verify → Done |
+| Task status | To Do → In Progress → In Review → Done |
 | Priority tags | P0 / P1 / P2 / P3 with color coding |
 | Time tracking | Auto-records when each task entered each status |
 | Done card timeline | Shows planned dates, actual completion, and total days |
