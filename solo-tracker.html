@@ -475,6 +475,13 @@ body {
 
     <div class="tb-spacer"></div>
 
+    <button class="btn btn-ghost" onclick="exportData()" title="Export backup">
+      <i class="ti ti-download"></i>
+    </button>
+    <label class="btn btn-ghost" title="Import backup" style="cursor:pointer;margin:0">
+      <i class="ti ti-upload"></i>
+      <input type="file" accept=".json" onchange="importData(event)" style="display:none">
+    </label>
     <button class="btn btn-ghost" onclick="openProjModal(null)">
       <i class="ti ti-folder-plus"></i>
       <span class="hide-xs">New Project</span>
@@ -964,6 +971,48 @@ document.addEventListener('keydown', e => {
     openTaskModal(null, null, null);
   }
 });
+
+/* ══════════════════════════════════════
+   EXPORT / IMPORT
+══════════════════════════════════════ */
+function exportData() {
+  const data = { projects, tasks, nextId, exportedAt: new Date().toISOString() };
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  const date = new Date().toISOString().slice(0, 10);
+  a.href     = url;
+  a.download = `solo-tracker-backup-${date}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!data.projects || !data.tasks) {
+        alert('Invalid backup file. Please use a Solo Tracker export.');
+        return;
+      }
+      if (!confirm(`Import ${data.projects.length} projects and ${data.tasks.length} tasks?\nThis will replace your current data.`)) return;
+      projects = data.projects;
+      tasks    = data.tasks;
+      nextId   = data.nextId || (Math.max(0, ...tasks.map(t => t.id)) + 1);
+      saveData();
+      refresh();
+    } catch(err) {
+      alert('Failed to read file. Make sure it is a valid Solo Tracker backup.');
+    }
+  };
+  reader.readAsText(file);
+  /* reset input so same file can be re-imported */
+  event.target.value = '';
+}
 
 /* ══════════════════════════════════════
    MODULE 2 — KANBAN (row-aligned grid)
