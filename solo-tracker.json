@@ -1,0 +1,264 @@
+{
+  "projects": [
+    {
+      "id": "p1",
+      "name": "PhD Research",
+      "color": "#6153e0",
+      "order": 0
+    },
+    {
+      "id": "p3",
+      "name": "AI Content Automation",
+      "color": "#d94a28",
+      "order": 2
+    },
+    {
+      "id": "p4",
+      "name": "Creator Business",
+      "color": "#2563eb",
+      "order": 3
+    },
+    {
+      "id": "p5",
+      "name": "AI Course Product",
+      "color": "#d97706",
+      "order": 4
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "proj": "p1",
+      "name": "Systematic Literature Review",
+      "status": "done",
+      "pri": "P1",
+      "start": "2026-04-01",
+      "due": "2026-04-20",
+      "note": "",
+      "order": 0,
+      "timestamps": {
+        "todo_at": "2026-04-01",
+        "doing_at": "2026-04-05",
+        "done_at": "2026-04-20",
+        "planned_due": "2026-04-20"
+      }
+    },
+    {
+      "id": 3,
+      "proj": "p1",
+      "name": "Chapter 2 — Theoretical Framework",
+      "status": "doing",
+      "pri": "P0",
+      "start": "2026-05-20",
+      "due": "2026-05-30",
+      "note": "External Enabler framework",
+      "order": 2,
+      "timestamps": {
+        "todo_at": "2026-05-06",
+        "doing_at": "2026-05-20"
+      }
+    },
+    {
+      "id": 4,
+      "proj": "p1",
+      "name": "RQ4 Boundary Conditions",
+      "status": "todo",
+      "pri": "P0",
+      "start": "2026-05-28",
+      "due": "2026-06-10",
+      "note": "",
+      "order": 3,
+      "timestamps": {
+        "todo_at": "2026-05-15"
+      }
+    },
+    {
+      "id": 12,
+      "proj": "p3",
+      "name": "n8n Workflow Setup",
+      "status": "todo",
+      "pri": "P2",
+      "start": "2026-05-01",
+      "due": "2026-05-10",
+      "note": "",
+      "order": 0,
+      "timestamps": {
+        "todo_at": "2026-05-01",
+        "doing_at": "2026-05-03",
+        "done_at": "2026-05-10",
+        "planned_due": "2026-05-10"
+      }
+    },
+    {
+      "id": 13,
+      "proj": "p3",
+      "name": "Xiaohongshu Auto-publish",
+      "status": "todo",
+      "pri": "P2",
+      "start": "2026-05-29",
+      "due": "2026-05-15",
+      "note": "",
+      "order": 1,
+      "timestamps": {
+        "todo_at": "2026-05-10",
+        "doing_at": "2026-05-11",
+        "done_at": "2026-05-15",
+        "planned_due": "2026-05-15",
+        "review_at": "2026-05-29"
+      }
+    },
+    {
+      "id": 16,
+      "proj": "p3",
+      "name": "Analytics Dashboard",
+      "status": "review",
+      "pri": "P3",
+      "start": "2026-05-29",
+      "due": "2026-07-10",
+      "note": "",
+      "order": 4,
+      "timestamps": {
+        "todo_at": "2026-05-15",
+        "review_at": "2026-05-29"
+      }
+    },
+    {
+      "id": 17,
+      "proj": "p4",
+      "name": "Brand Positioning & Strategy",
+      "status": "done",
+      "pri": "P1",
+      "start": "2026-05-05",
+      "due": "2026-05-12",
+      "note": "",
+      "order": 0,
+      "timestamps": {
+        "todo_at": "2026-05-05",
+        "doing_at": "2026-05-06",
+        "done_at": "2026-05-12",
+        "planned_due": "2026-05-12"
+      }
+    },
+    {
+      "id": 18,
+      "proj": "p4",
+      "name": "First 10 Posts (AI-assisted)",
+      "status": "doing",
+      "pri": "P1",
+      "start": "2026-05-20",
+      "due": "2026-06-01",
+      "note": "",
+      "order": 1,
+      "timestamps": {
+        "todo_at": "2026-05-12",
+        "doing_at": "2026-05-20"
+      }
+    },
+    {
+      "id": 19,
+      "proj": "p4",
+      "name": "Newsletter Issue #1",
+      "status": "review",
+      "pri": "P2",
+      "start": "2026-05-26",
+      "due": "2026-05-28",
+      "note": "",
+      "order": 2,
+      "timestamps": {
+        "todo_at": "2026-05-20",
+        "doing_at": "2026-05-26",
+        "review_at": "2026-05-27"
+      }
+    },
+    {
+      "id": 20,
+      "proj": "p4",
+      "name": "Paid Community Launch",
+      "status": "todo",
+      "pri": "P2",
+      "start": "2026-06-10",
+      "due": "2026-06-30",
+      "note": "",
+      "order": 3,
+      "timestamps": {
+        "todo_at": "2026-05-20"
+      }
+    },
+    {
+      "id": 21,
+      "proj": "p5",
+      "name": "Curriculum Design",
+      "status": "done",
+      "pri": "P1",
+      "start": "2026-05-08",
+      "due": "2026-05-14",
+      "note": "",
+      "order": 0,
+      "timestamps": {
+        "todo_at": "2026-05-08",
+        "doing_at": "2026-05-09",
+        "done_at": "2026-05-14",
+        "planned_due": "2026-05-14"
+      }
+    },
+    {
+      "id": 22,
+      "proj": "p5",
+      "name": "Module 1 Recording",
+      "status": "doing",
+      "pri": "P0",
+      "start": "2026-05-22",
+      "due": "2026-06-05",
+      "note": "5 modules total",
+      "order": 1,
+      "timestamps": {
+        "todo_at": "2026-05-14",
+        "doing_at": "2026-05-22"
+      }
+    },
+    {
+      "id": 23,
+      "proj": "p5",
+      "name": "Course Platform Setup",
+      "status": "todo",
+      "pri": "P2",
+      "start": "2026-06-05",
+      "due": "2026-06-15",
+      "note": "Gumroad or Podia",
+      "order": 2,
+      "timestamps": {
+        "todo_at": "2026-05-14"
+      }
+    },
+    {
+      "id": 24,
+      "proj": "p5",
+      "name": "Beta Cohort Recruitment (30)",
+      "status": "todo",
+      "pri": "P1",
+      "start": "2026-06-15",
+      "due": "2026-06-25",
+      "note": "",
+      "order": 3,
+      "timestamps": {
+        "todo_at": "2026-05-14"
+      }
+    },
+    {
+      "id": 25,
+      "proj": "p5",
+      "name": "Official Launch",
+      "status": "todo",
+      "pri": "P0",
+      "start": "2026-07-01",
+      "due": "2026-07-15",
+      "note": "",
+      "order": 4,
+      "timestamps": {
+        "todo_at": "2026-05-14"
+      }
+    }
+  ],
+  "nextId": 26,
+  "exportedAt": "2026-05-30T09:41:52.503Z"
+}
