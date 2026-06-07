@@ -100,5 +100,14 @@ I'm a PhD researcher studying AI-driven solo entrepreneurship, and also an AI en
 This project is also a living case study for my research. If you're a solo builder using AI tools to run your projects, I'd love to hear from you.
 
 ---
+## 💝 Support the Project
+
+If this project helped you, feel free to buy me a coffee!
+
+* **Asset:** USDT
+* **Network:** TRON (TRC-20)
+* **Address:** `TTDnLxKAKZWNjhbrfpF3iUHrgtoeigzsRT`
+
+> ⚠️ **Important:** Only send **USDT** via the **TRON (TRC-20)** network. Funds sent using other networks (e.g., ERC-20, BSC) will be permanently lost.
 
 *Solo Tracker is open source and free to use. If it's useful to you, a star ⭐ means a lot.*
